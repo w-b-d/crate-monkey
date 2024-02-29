@@ -1,0 +1,86 @@
+{% extends "crate_main/base.html" %}
+
+{% block content %}
+<style>
+    .search-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    label {
+        font-size: 30px;
+        color: white;
+        margin-right: 10px;
+    }
+
+    input[type="text"], select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 200px;
+        font-size: 16px;
+    }
+
+    select {
+        font-size: 18px; /* Increased font size */
+        font-weight: bold; /* Bold text */
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Styling for the About section */
+    .about-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .about-content {
+        color: white;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    /* Styling for the How to Use section */
+    .how-to-use-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .how-to-use-title {
+        font-size: 36px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .how-to-use-list {
+        text-align: left;
+        color: white;
+        font-size: 20px;
+        margin-left: 50px;
+    }
+</style>
+
+<div class="search-section">
+    <form method="post" action="/search/">
+        {% csrf_token %}
+        <label>Genre:</label>
+        {{ form.genre }}
+        <button class="search-section" type="submit" name="save">Search!</button>
+    </form>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crate Monkey</title>
+    <style>
+        @keyframes neon {
+            0% {
+                color: #39ff14; /* Green */
+                text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 40px #39ff14, 0 0 50px #39ff14, 0 0 60px #39ff14, 0 0 70px #39ff14;
+            }
+            50% {
+                color: #00ff00; /* Neon Green */
+                text-shadow: none;
+            }
+            100% {
+                color: #39ff14; /* Green */
+                text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 40px #39ff14, 0 0 50px #39ff14, 0 0 60px #39ff14, 0 0 70px #39ff14;
+            }
+        }
+
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: #5e6c36; /* Set background color for the bottom part */
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .top-black {
+            position: fixed; /* Position fixed at the top */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            height: 50px; /* Height for the black top */
+            background-color: black; /* Fill the top with black */
+            z-index: 1; /* Ensure it's above other content */
+        }
+
+        h1.blinking {
+            animation: neon 2.5s infinite alternate;
+            border: 2px solid black; /* Add black border */
+            padding: 10px; /* Add padding to improve visibility */
+            background-color: black;
+            color: #39ff14; /* Green text color */
+            font-family: Arial, sans-serif; /* Font family */
+            text-align: center; /* Center text */
+            box-sizing: border-box; /* Include border in the width calculation */
+            position: relative; /* Position relative for stacking context */
+            z-index: 2; /* Ensure it's above the black top */
+        }
+
+        /* Styling for the disclaimer */
+        .disclaimer {
+            position: absolute; /* Position absolute */
+            bottom: 20px; /* 20px from the bottom */
+            right: 20px; /* 20px from the right */
+            font-size: 10px; /* Font size */
+            color: white; /* Text color */
+            opacity: .5;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-black"></div> <!-- Black top -->
+    <div style="text-align: center;">
+        <h1 class="blinking">Crate Monkey</h1>
+    </div>
+    <div id="content" name="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+    <p>*Disclaimer: Crate Monkey provides a platform for users to discover and explore samples for creative purposes. However, Crate Monkey is not responsible for licensing the samples provided on its platform. It is the user's responsibility to ensure that proper licensing and permissions are obtained for any samples used in their creative works. Using samples without proper authorization may result in legal consequences. Users are advised to conduct their own research and seek legal advice if necessary before using any samples obtained from Crate Monkey.</p>
+    </div>
+</body>
+</html>

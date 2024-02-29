@@ -1,0 +1,56 @@
+{% extends "crate_main/base.html" %}
+{% block content %}
+<style>
+
+ button[type="submit"], .search-section, .redirect-button {
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover, .search-section, .redirect-button {
+        background-color: #0056b3;
+    }
+ input[type="text"], select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 200px;
+        font-size: 16px;
+    }
+
+    select {
+        font-size: 18px; /* Increased font size */
+        font-weight: bold; /* Bold text */
+    }
+     label {
+        font-size: 30px;
+        color: white;
+        margin-right: 10px;
+    }
+
+    h1{
+
+
+
+    }
+
+    </style>
+<div  style="text-align: center;">
+
+<form method="post" action="/select_style/">
+    {% csrf_token %}
+    <input type="hidden" name="genre" value="{{ genre }}">
+    <h2>Selected Genre is: {{ genre }}</h2>
+    <label >Style:</label>
+    {{ form.style }}
+    <button class="search-section" type="submit" name="save">Search!</button>
+</form>
+</div>
+
+
+{% endblock %}

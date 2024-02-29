@@ -1,0 +1,104 @@
+{% extends "crate_main/base.html" %}
+
+{% block content %}
+<style>
+    .search-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    label {
+        font-size: 30px;
+        color: white;
+        margin-right: 10px;
+    }
+
+    input[type="text"], select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 200px;
+        font-size: 16px;
+    }
+
+    select {
+        font-size: 18px; /* Increased font size */
+        font-weight: bold; /* Bold text */
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Styling for the About section */
+    .about-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .about-content {
+        color: white;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    /* Styling for the How to Use section */
+    .how-to-use-section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .how-to-use-title {
+        font-size: 36px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .how-to-use-list {
+        text-align: left;
+        color: white;
+        font-size: 20px;
+        margin-left: 50px;
+    }
+</style>
+
+<div class="search-section">
+    <form method="post" action="/search/">
+        {% csrf_token %}
+        <label>Genre:</label>
+        {{ form.genre }}
+        <button class="search-section" type="submit" name="save">Search!</button>
+    </form>
+</div>
+
+<!-- About section -->
+<div class="about-section">
+    <h2>About</h2>
+    <div class="about-content">
+        <p>Since the dawn of Hip-Hop, crate digging has been an essential element in the creation of beats. Sampling has evolved into a unique craft for beatmakers worldwide. At Crate Monkey, we offer a digital solution for discovering obscure and unique samples for your records.</p>
+        <p>Unlike traditional sample libraries, Crate Monkey takes a unique approach. Instead of simply presenting you with pre-selected tracks, we provide you with a randomly generated album. It's your task to explore each album and go through the tracks to find the perfect sample that fuels your creativity.</p>
+    </div>
+</div>
+
+<!-- How to Use section -->
+<div class="how-to-use-section">
+    <h2 class="how-to-use-title">How to Use</h2>
+    <ul class="how-to-use-list">
+        <li>1. Choose a Genre in the dropdown menu.</li>
+        <li>2. Choose a style based on the genre you selected and hit search!</li>
+        <li>3. Crate Monkey will generate the Title, Year released and album cover based on the parameters chosen .</li>
+        <li>4. Listen to the album and find samples!</li>
+    </ul>
+</div>
+
+{% endblock %}
