@@ -12,7 +12,7 @@ from django.urls import reverse
 from . import forms
 from django.shortcuts import redirect
 
-token = 'rsBQBogyWJHPVFbkKHpXmfBLvjAHUbhHbqavFmES'
+token = ''
 
 
 
